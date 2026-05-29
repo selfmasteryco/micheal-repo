@@ -448,7 +448,37 @@
           <p class="service-area__desc">We help homeowners in Summerlin, West Las Vegas, and surrounding neighborhoods keep their homes looking clean, fresh, and HOA-ready.</p>
         </div>
         <div class="service-area__map">
-          <img src="assets/service-area-map.jpg" alt="Service area map showing Summerlin and Las Vegas" width="480" height="320" />
+          <svg class="service-area__map-svg" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Service area map showing Summerlin and Las Vegas">
+            <rect width="480" height="300" fill="#e6dcc8" rx="12"/>
+            <!-- Road grid -->
+            <line x1="0" y1="60"  x2="480" y2="60"  stroke="#cfc0a0" stroke-width="1.5"/>
+            <line x1="0" y1="100" x2="480" y2="100" stroke="#bfb090" stroke-width="2.5"/>
+            <line x1="0" y1="150" x2="480" y2="150" stroke="#cfc0a0" stroke-width="1.5"/>
+            <line x1="0" y1="200" x2="480" y2="200" stroke="#bfb090" stroke-width="2.5"/>
+            <line x1="0" y1="250" x2="480" y2="250" stroke="#cfc0a0" stroke-width="1.5"/>
+            <line x1="80"  y1="0" x2="80"  y2="300" stroke="#cfc0a0" stroke-width="1.5"/>
+            <line x1="160" y1="0" x2="160" y2="300" stroke="#bfb090" stroke-width="2.5"/>
+            <line x1="240" y1="0" x2="240" y2="300" stroke="#cfc0a0" stroke-width="1.5"/>
+            <line x1="320" y1="0" x2="320" y2="300" stroke="#bfb090" stroke-width="2.5"/>
+            <line x1="400" y1="0" x2="400" y2="300" stroke="#cfc0a0" stroke-width="1.5"/>
+            <!-- Minor roads -->
+            <line x1="0" y1="80"  x2="480" y2="80"  stroke="#d8c8b0" stroke-width="0.7"/>
+            <line x1="0" y1="125" x2="480" y2="125" stroke="#d8c8b0" stroke-width="0.7"/>
+            <line x1="0" y1="175" x2="480" y2="175" stroke="#d8c8b0" stroke-width="0.7"/>
+            <line x1="0" y1="225" x2="480" y2="225" stroke="#d8c8b0" stroke-width="0.7"/>
+            <line x1="120" y1="0" x2="120" y2="300" stroke="#d8c8b0" stroke-width="0.7"/>
+            <line x1="200" y1="0" x2="200" y2="300" stroke="#d8c8b0" stroke-width="0.7"/>
+            <line x1="280" y1="0" x2="280" y2="300" stroke="#d8c8b0" stroke-width="0.7"/>
+            <line x1="360" y1="0" x2="360" y2="300" stroke="#d8c8b0" stroke-width="0.7"/>
+            <line x1="440" y1="0" x2="440" y2="300" stroke="#d8c8b0" stroke-width="0.7"/>
+            <!-- Summerlin circle -->
+            <circle cx="178" cy="150" r="108" fill="rgba(21,101,192,0.18)" stroke="rgba(21,101,192,0.55)" stroke-width="2.5"/>
+            <!-- Las Vegas circle -->
+            <circle cx="318" cy="150" r="118" fill="rgba(21,101,192,0.14)" stroke="rgba(21,101,192,0.45)" stroke-width="2.5"/>
+            <!-- Labels -->
+            <text x="178" y="143" text-anchor="middle" font-family="Arial Narrow, Arial, sans-serif" font-size="14" font-weight="700" fill="#0d2040" letter-spacing="1.5">SUMMERLIN</text>
+            <text x="318" y="143" text-anchor="middle" font-family="Arial Narrow, Arial, sans-serif" font-size="14" font-weight="700" fill="#0d2040" letter-spacing="1.5">LAS VEGAS</text>
+          </svg>
         </div>
       </div>
     </section>

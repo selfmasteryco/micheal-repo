@@ -5,7 +5,7 @@
 /* TOKENS */
 :root {
   --color-bg: #ffffff;
-  --color-bg-light: #f4f6f9;
+  --color-bg-light: #dce8f8;
   --color-navy: #0d2040;
   --color-blue: #1565c0;
   --color-blue-dark: #0d47a1;
@@ -377,9 +377,11 @@ ul { list-style: none; }
 
 .package__image img {
   width: 100%;
-  height: 240px;
+  height: 100%;
+  min-height: 260px;
   object-fit: cover;
   border-radius: var(--radius);
+  display: block;
 }
 
 .package__eyebrow {
@@ -531,15 +533,15 @@ ul { list-style: none; }
 .services-grid__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-md);
+  gap: 0.75rem;
 }
 
 .service-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  padding: var(--space-md) var(--space-sm);
+  gap: 0.6rem;
+  padding: 1rem 0.5rem;
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius);
   text-align: center;
@@ -553,16 +555,19 @@ ul { list-style: none; }
 .service-card__icon { color: var(--color-blue); }
 .service-card__label {
   font-family: var(--font-display);
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.06em;
   color: var(--color-text);
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
 @media (min-width: 640px) {
   .services-grid__grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (min-width: 1024px) {
+  .services-grid__grid { grid-template-columns: repeat(8, 1fr); gap: 0.6rem; }
 }
 
 /* ============================================================
@@ -586,7 +591,9 @@ ul { list-style: none; }
 .offer-banner__image img {
   border-radius: var(--radius);
   object-fit: cover;
-  max-width: 180px;
+  max-width: 220px;
+  width: 100%;
+  height: 240px;
 }
 
 .offer-banner__price-circle {
@@ -691,14 +698,14 @@ ul { list-style: none; }
 
 @media (min-width: 768px) {
   .results__grid { grid-template-columns: repeat(4, 1fr); }
-  .result-pair__half img { height: 160px; }
+  .result-pair__half img { height: 175px; }
 }
 
 /* ============================================================
    TRUST BADGES
    ============================================================ */
 .trust {
-  background: var(--color-bg-light);
+  background: #f4f7fb;
   padding: var(--space-xl) 0;
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
@@ -760,7 +767,7 @@ ul { list-style: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.18;
+  opacity: 0.28;
   z-index: 0;
 }
 .service-area__inner {
@@ -786,11 +793,12 @@ ul { list-style: none; }
 }
 .service-area__title span { color: var(--color-blue); }
 .service-area__desc { color: rgba(255,255,255,0.78); font-size: 0.97rem; line-height: 1.85; max-width: 420px; }
-.service-area__map img {
-  border-radius: var(--radius-lg);
+
+.service-area__map-svg {
   width: 100%;
-  object-fit: cover;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  display: block;
 }
 
 @media (min-width: 768px) {
