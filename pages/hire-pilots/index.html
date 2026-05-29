@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hire a Drone Operator — SkyLens Operators</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- BACK LINK -->
+  <a href="../../index.html" class="back-link">← All Pages</a>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <!-- Background watermark drone -->
+    <div class="hero__bg-drone" aria-hidden="true">
+      <svg class="drone-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+        <line x1="32" y1="32" x2="10" y2="10" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <line x1="68" y1="32" x2="90" y2="10" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <line x1="32" y1="68" x2="10" y2="90" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <line x1="68" y1="68" x2="90" y2="90" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <rect x="30" y="30" width="40" height="40" rx="6"/>
+        <circle cx="50" cy="50" r="9" fill="rgba(0,0,0,0.4)"/>
+        <circle cx="50" cy="50" r="5" fill="rgba(0,0,0,0.5)"/>
+        <circle cx="53" cy="47" r="2" fill="rgba(255,255,255,0.25)"/>
+        <circle cx="10" cy="10" r="5" opacity="0.8"/>
+        <circle cx="90" cy="10" r="5" opacity="0.8"/>
+        <circle cx="10" cy="90" r="5" opacity="0.8"/>
+        <circle cx="90" cy="90" r="5" opacity="0.8"/>
+        <ellipse class="prop p1" cx="10" cy="10" rx="13" ry="3.5" opacity="0.6"/>
+        <ellipse class="prop p2" cx="90" cy="10" rx="13" ry="3.5" opacity="0.6"/>
+        <ellipse class="prop p3" cx="10" cy="90" rx="13" ry="3.5" opacity="0.6"/>
+        <ellipse class="prop p4" cx="90" cy="90" rx="13" ry="3.5" opacity="0.6"/>
+      </svg>
+    </div>
+
+    <!-- Scan line sweep -->
+    <div class="hero__scan" aria-hidden="true"></div>
+
+    <!-- Animated flying drone -->
+    <div class="drone-fly" aria-hidden="true">
+      <svg class="drone-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="72" height="72">
+        <line x1="32" y1="32" x2="10" y2="10" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <line x1="68" y1="32" x2="90" y2="10" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <line x1="32" y1="68" x2="10" y2="90" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <line x1="68" y1="68" x2="90" y2="90" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <rect x="30" y="30" width="40" height="40" rx="6"/>
+        <circle cx="50" cy="50" r="9" fill="rgba(0,0,0,0.45)"/>
+        <circle cx="50" cy="50" r="5" fill="rgba(0,0,0,0.6)"/>
+        <circle cx="53" cy="47" r="2" fill="rgba(255,255,255,0.3)"/>
+        <circle cx="10" cy="10" r="5"/>
+        <circle cx="90" cy="10" r="5"/>
+        <circle cx="10" cy="90" r="5"/>
+        <circle cx="90" cy="90" r="5"/>
+        <ellipse class="prop p1" cx="10" cy="10" rx="13" ry="3.5" opacity="0.75"/>
+        <ellipse class="prop p2" cx="90" cy="10" rx="13" ry="3.5" opacity="0.75"/>
+        <ellipse class="prop p3" cx="10" cy="90" rx="13" ry="3.5" opacity="0.75"/>
+        <ellipse class="prop p4" cx="90" cy="90" rx="13" ry="3.5" opacity="0.75"/>
+        <circle class="led" cx="50" cy="63" r="2.5" fill="#ff3366"/>
+      </svg>
+    </div>
+
+    <!-- Hero grid: text + floating photos -->
+    <div class="hero__grid">
+
+      <div class="hero__text">
+        <span class="hero__badge">Certified Drone Operators</span>
+        <h1 class="hero__title">Shots That<br><em>Stop</em><br>Scrolling</h1>
+        <p class="hero__sub">Every event deserves perspective. Our FAA-certified pilots deliver cinematic aerial photography that turns ordinary moments into extraordinary memories.</p>
+        <div class="hero__cta-group">
+          <a href="#pilots" class="btn btn--primary">Meet the Pilots &rarr;</a>
+          <a href="#gallery" class="btn btn--outline">View Portfolio</a>
+        </div>
+      </div>
+
+      <!-- Floating polaroid-style photos -->
+      <div class="hero__photos" aria-hidden="true">
+
+        <div class="photo-float photo-float--a">
+          <img
+            src="https://placehold.co/240x175/161625/9c7af8?text=Aerial+Wedding"
+            alt=""
+            width="240"
+            height="175"
+          />
+          <span class="photo-float__caption">📍 Malibu, CA — Wedding</span>
+        </div>
+
+        <div class="photo-float photo-float--b">
+          <img
+            src="https://placehold.co/200x260/0e1a14/3dffa0?text=Coastal+Shoot"
+            alt=""
+            width="200"
+            height="260"
+          />
+          <span class="photo-float__caption">📍 Big Sur, CA — Nature</span>
+        </div>
+
+        <div class="photo-float photo-float--c">
+          <img
+            src="https://placehold.co/250x170/1a1408/ffc145?text=Estate+Aerial"
+            alt=""
+            width="250"
+            height="170"
+          />
+          <span class="photo-float__caption">📍 Beverly Hills, CA — Real Estate</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS STRIP -->
+  <div class="creds" role="list" aria-label="Pilot credentials">
+    <div class="cred-item" role="listitem">
+      <span class="cred-item__dot"></span>
+      FAA Part 107 Certified
+    </div>
+    <div class="cred-item" role="listitem">
+      <span class="cred-item__dot"></span>
+      Fully Insured
+    </div>
+    <div class="cred-item" role="listitem">
+      <span class="cred-item__dot"></span>
+      Background Checked
+    </div>
+    <div class="cred-item" role="listitem">
+      <span class="cred-item__dot"></span>
+      Edited Footage Included
+    </div>
+  </div>
+
+  <!-- PILOTS -->
+  <section class="section" id="pilots">
+    <div class="section__header">
+      <span class="section__label">Our Operators</span>
+      <h2 class="section__title">Meet the Pilots</h2>
+      <p class="section__desc">Handpicked for their skill, portfolio quality, and professionalism. Every operator has flown 50+ paid events.</p>
+    </div>
+
+    <div class="pilots-grid">
+
+      <!-- PILOT: Marcus Chen -->
+      <article class="pilot-card">
+        <div class="pilot-card__header">
+          <img
+            src="https://placehold.co/72x72/161625/7c72f8?text=MC"
+            alt="Marcus Chen pilot headshot"
+            width="72"
+            height="72"
+            class="pilot-card__avatar"
+          />
+          <div class="pilot-card__identity">
+            <h3 class="pilot-card__name">Marcus Chen</h3>
+            <span class="pilot-card__specialty">Weddings &amp; Celebrations</span>
+            <div class="pilot-card__stars">
+              <span class="stars" aria-label="4.9 out of 5 stars">★★★★★</span>
+              <span class="pilot-card__review-count">4.9 (214 reviews)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pilot-card__portfolio" aria-label="Marcus Chen portfolio samples">
+          <div class="portfolio-thumb">
+            <img src="https://placehold.co/300x225/1a1020/c084fc?text=Wedding+Aerial" alt="Aerial wedding ceremony shot by Marcus Chen" width="300" height="225" />
+          </div>
+          <div class="portfolio-thumb">
+            <img src="https://placehold.co/300x225/120e20/a78bfa?text=Reception+View" alt="Reception venue aerial by Marcus Chen" width="300" height="225" />
+          </div>
+          <div class="portfolio-thumb">
+            <img src="https://placehold.co/300x225/1a1228/d8b4fe?text=Golden+Hour" alt="Golden hour aerial by Marcus Chen" width="300" height="225" />
+          </div>
+        </div>
+
+        <div class="pilot-card__details">
+          <div class="pilot-detail">
+            <span class="pilot-detail__label">Experience</span>
+            <span class="pilot-detail__value">8 Years</span>
+          </div>
+          <div class="pilot-detail">
+            <span class="pilot-detail__label">Certification</span>
+            <span class="pilot-detail__value">FAA Part 107</span>
+          </div>
+          <div class="pilot-detail">
+            <span class="pilot-detail__label">Day Rate</span>
+            <span class="pilot-detail__value pilot-detail__value--price">$450</span>
+          </div>
+        </div>
+
+        <div class="pilot-card__tags">
+          <span class="tag">Weddings</span>
+          <span class="tag">Corporate Events</span>
+          <span class="tag">Portraits</span>
+        </div>
+
+        <div class="pilot-card__footer">
+          <a href="#contact" class="btn btn--primary pilot-card__book">Book Marcus &rarr;</a>
+        </div>
+      </article>
+      <!-- END PILOT: Marcus Chen -->
+
+      <!-- PILOT: Zoe Williams -->
+      <article class="pilot-card">
+        <div class="pilot-card__header">
+          <img
+            src="https://placehold.co/72x72/161625/3dffa0?text=ZW"
+            alt="Zoe Williams pilot headshot"
+            width="72"
+            height="72"
+            class="pilot-card__avatar"
+          />
+          <div class="pilot-card__identity">
+            <h3 class="pilot-card__name">Zoe Williams</h3>
+            <span class="pilot-card__specialty">Real Estate &amp; Architecture</span>
+            <div class="pilot-card__stars">
+              <span class="stars" aria-label="4.8 out of 5 stars">★★★★★</span>
+              <span class="pilot-card__review-count">4.8 (178 reviews)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pilot-card__portfolio" aria-label="Zoe Williams portfolio samples">
+          <div class="portfolio-thumb">
+            <img src="https://placehold.co/300x225/081a10/22d3ee?text=Estate+Overview" alt="Aerial estate overview by Zoe Williams" width="300" height="225" />
+          </div>
+          <div class="portfolio-thumb">
+            <img src="https://placehold.co/300x225/0a1814/34d399?text=Architecture" alt="Architectural aerial by Zoe Williams" width="300" height="225" />
+          </div>
+          <div class="portfolio-thumb">
+            <img src="https://placehold.co/300x225/08180e/6ee7b7?text=Property+Tour" alt="Property tour aerial by Zoe Williams" width="300" height="225" />
+          </div>
+        </div>
+
+        <div class="pilot-card__details">
+          <div class="pilot-detail">
+            <span class="pilot-detail__label">Experience</span>
+            <span class="pilot-detail__value">6 Years</span>
+          </div>
+          <div class="pilot-detail">
+            <span class="pilot-detail__label">Certification</span>
+            <span class="pilot-detail__value">FAA Part 107</span>
+          </div>
+          <div class="pilot-detail">
+            <span class="pilot-detail__label">Day Rate</span>
+            <span class="pilot-detail__value pilot-detail__value--price">$395</span>
+          </div>
+        </div>
+
+        <div class="pilot-card__tags">
+          <span class="tag">Real Estate</span>
+          <span class="tag">Architecture</span>
+          <span class="tag">Commercial</span>
+        </div>
+
+        <div class="pilot-card__footer">
+          <a href="#contact" class="btn btn--primary pilot-card__book">Book Zoe &rarr;</a>
+        </div>
+      </article>
+      <!-- END PILOT: Zoe Williams -->
+
+      <!-- PILOT: Dante Rivera -->
+      <article class="pilot-card">
+        <div class="pilot-card__header">
+          <img
+            src="https://placehold.co/72x72/161625/ff8c38?text=DR"
+            alt="Dante Rivera pilot headshot"
+            width="72"
+            height="72"
+            class="pilot-card__avatar"
+          />
+          <div class="pilot-card__identity">
+            <h3 class="pilot-card__name">Dante Rivera</h3>
+            <span class="pilot-card__specialty">Sports &amp; Action Events</span>
+            <div class="pilot-card__stars">
+              <span class="stars" aria-label="4.7 out of 5 stars">★★★★★</span>
+              <span class="pilot-card__review-count">4.7 (133 reviews)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pilot-card__portfolio" aria-label="Dante Rivera portfolio samples">
+          <div class="portfolio-thumb">
+            <img src="https://placehold.co/300x225/1a0808/f87171?text=Stadium+Aerial" alt="Stadium aerial by Dante Rivera" width="300" height="225" />
+          </div>
+          <div class="portfolio-thumb">
+            <img src="https://placehold.co/300x225/180a08/fca5a5?text=Race+Coverage" alt="Race event coverage by Dante Rivera" width="300" height="225" />
+          </div>
+          <div class="portfolio-thumb">
+            <img src="https://placehold.co/300x225/1a0c08/fdba74?text=Action+Shot" alt="Action aerial by Dante Rivera" width="300" height="225" />
+          </div>
+        </div>
+
+        <div class="pilot-card__details">
+          <div class="pilot-detail">
+            <span class="pilot-detail__label">Experience</span>
+            <span class="pilot-detail__value">5 Years</span>
+          </div>
+          <div class="pilot-detail">
+            <span class="pilot-detail__label">Certification</span>
+            <span class="pilot-detail__value">FAA Part 107</span>
+          </div>
+          <div class="pilot-detail">
+            <span class="pilot-detail__label">Day Rate</span>
+            <span class="pilot-detail__value pilot-detail__value--price">$375</span>
+          </div>
+        </div>
+
+        <div class="pilot-card__tags">
+          <span class="tag">Sports</span>
+          <span class="tag">Festivals</span>
+          <span class="tag">Motorsports</span>
+        </div>
+
+        <div class="pilot-card__footer">
+          <a href="#contact" class="btn btn--primary pilot-card__book">Book Dante &rarr;</a>
+        </div>
+      </article>
+      <!-- END PILOT: Dante Rivera -->
+
+      <!-- PILOT: Sarah Okonkwo -->
+      <article class="pilot-card">
+        <div class="pilot-card__header">
+          <img
+            src="https://placehold.co/72x72/161625/ffd166?text=SO"
+            alt="Sarah Okonkwo pilot headshot"
+            width="72"
+            height="72"
+            class="pilot-card__avatar"
+          />
+          <div class="pilot-card__identity">
+            <h3 class="pilot-card__name">Sarah Okonkwo</h3>
+            <span class="pilot-card__specialty">Nature &amp; Landscape</span>
+            <div class="pilot-card__stars">
+              <span class="stars" aria-label="4.9 out of 5 stars">★★★★★</span>
+              <span class="pilot-card__review-count">4.9 (196 reviews)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pilot-card__portfolio" aria-label="Sarah Okonkwo portfolio samples">
+          <div class="portfolio-thumb">
+            <img src="https://placehold.co/300x225/0e1408/86efac?text=Mountain+View" alt="Mountain aerial by Sarah Okonkwo" width="300" height="225" />
+          </div>
+          <div class="portfolio-thumb">
+            <img src="https://placehold.co/300x225/081410/4ade80?text=Coastal+Cliffs" alt="Coastal aerial by Sarah Okonkwo" width="300" height="225" />
+          </div>
+          <div class="portfolio-thumb">
+            <img src="https://placehold.co/300x225/0c1810/bbf7d0?text=Forest+Canopy" alt="Forest canopy aerial by Sarah Okonkwo" width="300" height="225" />
+          </div>
+        </div>
+
+        <div class="pilot-card__details">
+          <div class="pilot-detail">
+            <span class="pilot-detail__label">Experience</span>
+            <span class="pilot-detail__value">7 Years</span>
+          </div>
+          <div class="pilot-detail">
+            <span class="pilot-detail__label">Certification</span>
+            <span class="pilot-detail__value">FAA Part 107</span>
+          </div>
+          <div class="pilot-detail">
+            <span class="pilot-detail__label">Day Rate</span>
+            <span class="pilot-detail__value pilot-detail__value--price">$420</span>
+          </div>
+        </div>
+
+        <div class="pilot-card__tags">
+          <span class="tag">Nature</span>
+          <span class="tag">Film &amp; TV</span>
+          <span class="tag">Retreats</span>
+        </div>
+
+        <div class="pilot-card__footer">
+          <a href="#contact" class="btn btn--primary pilot-card__book">Book Sarah &rarr;</a>
+        </div>
+      </article>
+      <!-- END PILOT: Sarah Okonkwo -->
+
+    </div>
+  </section>
+
+  <!-- SECTION DIVIDER DRONE -->
+  <div class="section-drone" aria-hidden="true">
+    <div class="section-drone__line"></div>
+    <div class="section-drone__vehicle">
+      <svg class="drone-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="28" height="28">
+        <line x1="32" y1="32" x2="10" y2="10" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <line x1="68" y1="32" x2="90" y2="10" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <line x1="32" y1="68" x2="10" y2="90" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <line x1="68" y1="68" x2="90" y2="90" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <rect x="30" y="30" width="40" height="40" rx="6"/>
+        <circle cx="50" cy="50" r="8" fill="rgba(0,0,0,0.4)"/>
+        <ellipse class="prop p1" cx="10" cy="10" rx="13" ry="3.5" opacity="0.8"/>
+        <ellipse class="prop p2" cx="90" cy="10" rx="13" ry="3.5" opacity="0.8"/>
+        <ellipse class="prop p3" cx="10" cy="90" rx="13" ry="3.5" opacity="0.8"/>
+        <ellipse class="prop p4" cx="90" cy="90" rx="13" ry="3.5" opacity="0.8"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="surface-section" id="gallery">
+    <section class="section">
+      <div class="section__header">
+        <span class="section__label">Portfolio</span>
+        <h2 class="section__title">Captured From Above</h2>
+        <p class="section__desc">A sample of the work our pilots have delivered. Click any shot to feel the shutter.</p>
+      </div>
+
+      <div class="gallery-grid" data-gallery>
+        <div class="gallery-item" data-capture>
+          <img src="https://placehold.co/600x440/1a1020/c084fc?text=Outdoor+Ceremony" alt="Outdoor wedding ceremony from above" width="600" height="440" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Outdoor Ceremony</span></div>
+        </div>
+        <div class="gallery-item gallery-item--tall" data-capture>
+          <img src="https://placehold.co/600x880/081a10/34d399?text=Coastal+Cliffs" alt="Coastal cliffs aerial view" width="600" height="880" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Coastal Cliffs</span></div>
+        </div>
+        <div class="gallery-item" data-capture>
+          <img src="https://placehold.co/600x440/1a1408/fbbf24?text=Estate+Flyover" alt="Estate flyover aerial" width="600" height="440" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Estate Flyover</span></div>
+        </div>
+        <div class="gallery-item" data-capture>
+          <img src="https://placehold.co/600x440/1a0808/f87171?text=Festival+Crowd" alt="Festival crowd aerial view" width="600" height="440" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Festival Crowd</span></div>
+        </div>
+        <div class="gallery-item" data-capture>
+          <img src="https://placehold.co/600x440/0e0e2a/818cf8?text=City+at+Dusk" alt="City skyline at dusk from drone" width="600" height="440" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">City at Dusk</span></div>
+        </div>
+        <div class="gallery-item gallery-item--tall" data-capture>
+          <img src="https://placehold.co/600x880/0c1818/2dd4bf?text=Mountain+Lake" alt="Mountain lake aerial view" width="600" height="880" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Mountain Lake</span></div>
+        </div>
+        <div class="gallery-item" data-capture>
+          <img src="https://placehold.co/600x440/180e1a/e879f9?text=Corporate+Event" alt="Corporate event aerial coverage" width="600" height="440" />
+          <div class="gallery-item__overlay"><span class="gallery-item__label">Corporate Event</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- SECTION DIVIDER DRONE -->
+  <div class="section-drone" aria-hidden="true">
+    <div class="section-drone__line"></div>
+    <div class="section-drone__vehicle" style="animation-delay: -4s;">
+      <svg class="drone-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="28" height="28">
+        <line x1="32" y1="32" x2="10" y2="10" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <line x1="68" y1="32" x2="90" y2="10" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <line x1="32" y1="68" x2="10" y2="90" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <line x1="68" y1="68" x2="90" y2="90" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <rect x="30" y="30" width="40" height="40" rx="6"/>
+        <circle cx="50" cy="50" r="8" fill="rgba(0,0,0,0.4)"/>
+        <ellipse class="prop p1" cx="10" cy="10" rx="13" ry="3.5" opacity="0.8"/>
+        <ellipse class="prop p2" cx="90" cy="10" rx="13" ry="3.5" opacity="0.8"/>
+        <ellipse class="prop p3" cx="10" cy="90" rx="13" ry="3.5" opacity="0.8"/>
+        <ellipse class="prop p4" cx="90" cy="90" rx="13" ry="3.5" opacity="0.8"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- WHY HIRE A PRO -->
+  <section class="section">
+    <div class="section__header">
+      <span class="section__label">The Difference</span>
+      <h2 class="section__title">Why Hire a Pro?</h2>
+      <p class="section__desc">Anyone can fly a drone. Not everyone can make it look like cinema.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="why-card__number" aria-hidden="true">01</span>
+        <h3 class="why-card__title">Licensed &amp; Legal</h3>
+        <p class="why-card__desc">Every pilot holds an FAA Part 107 Remote Pilot Certificate — required by law for commercial drone flights. No surprises, no fines.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-card__number" aria-hidden="true">02</span>
+        <h3 class="why-card__title">Cinematic Eye</h3>
+        <p class="why-card__desc">Technical skill is the baseline. Our pilots understand light, movement, and storytelling — turning raw footage into something worth watching.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-card__number" aria-hidden="true">03</span>
+        <h3 class="why-card__title">Edited &amp; Delivered</h3>
+        <p class="why-card__desc">You receive color-graded, edited footage within 72 hours. No raw files to sort through — just ready-to-share media that looks professional.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner" id="contact">
+    <h2 class="cta-banner__title">Ready to Book a Pilot?</h2>
+    <p class="cta-banner__sub">Tell us about your event and we'll match you with the right operator. Most dates confirmed within 24 hours.</p>
+    <div class="cta-banner__actions">
+      <a href="tel:+15550009876" class="btn btn--primary">&#128222; Call (555) 000-9876</a>
+      <a href="mailto:book@skylensoperators.com" class="btn btn--outline">&#9993; Email Us</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer__logo">SkyLens Operators</div>
+    <p class="footer__tagline">Certified drone pilots for every occasion.</p>
+    <ul class="footer__links">
+      <li><a href="#pilots">Our Pilots</a></li>
+      <li><a href="#gallery">Portfolio</a></li>
+      <li><a href="#contact">Book Now</a></li>
+      <li><a href="#">FAA Compliance</a></li>
+    </ul>
+    <p class="footer__copy">&copy; 2026 SkyLens Operators. All rights reserved. Placeholder contact info — replace before going live.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('[data-capture]').forEach(el => {
+        el.addEventListener('click', () => {
+          el.classList.remove('captured');
+          void el.offsetWidth;
+          el.classList.add('captured');
+          el.addEventListener('animationend', () => el.classList.remove('captured'), { once: true });
+        });
+      });
+
+      document.querySelectorAll('.portfolio-thumb').forEach(thumb => {
+        thumb.addEventListener('click', () => {
+          thumb.classList.remove('captured');
+          void thumb.offsetWidth;
+          thumb.classList.add('captured');
+          thumb.addEventListener('animationend', () => thumb.classList.remove('captured'), { once: true });
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

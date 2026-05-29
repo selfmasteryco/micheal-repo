@@ -1,0 +1,762 @@
+/* Hire a Pilot Page — SkyLens Operators */
+
+:root {
+  --color-bg: #06060e;
+  --color-surface: #0e0e1a;
+  --color-surface-2: #161625;
+  --color-border: #1f1f38;
+  --color-text: #eeedf8;
+  --color-muted: #7070a0;
+  --color-accent: #7c72f8;
+  --color-accent-glow: rgba(124, 114, 248, 0.12);
+  --color-cta: #ff8c38;
+  --color-cta-hover: #ffaa5e;
+  --color-star: #ffd166;
+  --color-verified: #3dffa0;
+  --font-display: 'Oswald', Impact, sans-serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
+  --space-sm: 0.75rem;
+  --space-md: 1.5rem;
+  --space-lg: 3rem;
+  --space-xl: 6rem;
+  --radius: 10px;
+  --radius-lg: 18px;
+  --transition: 0.25s ease;
+}
+
+/* === RESET === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* === BACK LINK === */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: color var(--transition);
+  position: relative;
+  z-index: 20;
+}
+.back-link:hover { color: var(--color-accent); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: var(--space-lg) var(--space-md) var(--space-xl);
+  background:
+    radial-gradient(ellipse 70% 60% at 30% 40%, rgba(124, 114, 248, 0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 70%, rgba(255, 140, 56, 0.06) 0%, transparent 60%),
+    var(--color-bg);
+}
+
+/* Giant watermark drone — pure decoration */
+.hero__bg-drone {
+  position: absolute;
+  right: -8%;
+  top: 5%;
+  width: 520px;
+  height: 520px;
+  color: rgba(124, 114, 248, 0.035);
+  pointer-events: none;
+  transform: rotate(12deg);
+  z-index: 0;
+}
+
+/* Scan line sweep */
+.hero__scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(124, 114, 248, 0.4) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+  animation: scan-sweep 6s ease-in-out infinite;
+  animation-delay: 1s;
+}
+@keyframes scan-sweep {
+  0%   { top: 0%;   opacity: 0.6; }
+  80%  { top: 100%; opacity: 0; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Content grid */
+.hero__grid {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .hero__grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Text side */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-accent-glow);
+  border: 1px solid rgba(124, 114, 248, 0.3);
+  color: var(--color-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35rem 1rem;
+  border-radius: 100px;
+  margin-bottom: var(--space-md);
+}
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+.hero__title em {
+  font-style: normal;
+  color: var(--color-accent);
+}
+.hero__sub {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--color-muted);
+  max-width: 480px;
+  line-height: 1.75;
+  margin-bottom: var(--space-lg);
+}
+.hero__cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* Floating photo collage — right side of hero */
+.hero__photos {
+  position: relative;
+  height: 480px;
+  display: none;
+}
+@media (min-width: 1024px) {
+  .hero__photos { display: block; }
+}
+
+.photo-float {
+  position: absolute;
+  background: var(--color-surface);
+  padding: 8px 8px 40px;
+  border-radius: 3px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+.photo-float img { border-radius: 2px; object-fit: cover; }
+.photo-float__caption {
+  display: block;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--color-muted);
+  margin-top: 0.45rem;
+}
+
+.photo-float--a {
+  top: 0;
+  left: 0;
+  transform: rotate(-7deg);
+  animation: pfloat-a 7s ease-in-out infinite;
+  z-index: 3;
+}
+.photo-float--b {
+  top: 18%;
+  right: 0;
+  transform: rotate(5deg);
+  animation: pfloat-b 9s ease-in-out infinite;
+  animation-delay: -3.5s;
+  z-index: 2;
+}
+.photo-float--c {
+  bottom: 0;
+  left: 22%;
+  transform: rotate(-2deg);
+  animation: pfloat-a 8s ease-in-out infinite;
+  animation-delay: -5s;
+  z-index: 1;
+}
+
+@keyframes pfloat-a {
+  0%, 100% { transform: rotate(-7deg) translateY(0);   }
+  50%       { transform: rotate(-5deg) translateY(-22px); }
+}
+@keyframes pfloat-b {
+  0%, 100% { transform: rotate(5deg) translateY(0);   }
+  50%       { transform: rotate(7deg) translateY(-26px); }
+}
+
+/* ============================================================
+   ANIMATED FLYING DRONE (appears in hero + section dividers)
+   ============================================================ */
+.drone-fly {
+  position: absolute;
+  bottom: 14%;
+  left: 0;
+  width: 72px;
+  height: 72px;
+  color: var(--color-accent);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 6;
+  animation: drone-path 16s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  animation-delay: 2s;
+}
+@keyframes drone-path {
+  0%   { transform: translate(-80px,  0px);  opacity: 0; }
+  4%   { opacity: 1; }
+  25%  { transform: translate(24vw,  -28px); }
+  55%  { transform: translate(58vw,   14px); }
+  80%  { transform: translate(85vw,  -10px); }
+  96%  { opacity: 1; }
+  100% { transform: translate(calc(100vw + 80px), 0px); opacity: 0; }
+}
+
+/* Section divider drone (smaller) */
+.section-drone {
+  position: relative;
+  height: 32px;
+  overflow: visible;
+  pointer-events: none;
+}
+.section-drone__line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-border);
+}
+.section-drone__vehicle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  color: rgba(124, 114, 248, 0.5);
+  animation: divider-fly 10s linear infinite;
+}
+@keyframes divider-fly {
+  from { left: -35px; }
+  to   { left: calc(100% + 35px); }
+}
+
+/* SVG propeller spin — works on both drone instances */
+.drone-svg .prop {
+  animation: prop-spin 0.12s linear infinite;
+}
+.drone-svg .p1 { transform-origin: 10px 10px; }
+.drone-svg .p2 { transform-origin: 90px 10px; }
+.drone-svg .p3 { transform-origin: 10px 90px; }
+.drone-svg .p4 { transform-origin: 90px 90px; }
+@keyframes prop-spin {
+  to { transform: rotate(360deg); }
+}
+.drone-svg .led {
+  animation: led-pulse 2.4s ease-in-out infinite;
+}
+@keyframes led-pulse {
+  0%, 85%, 100% { opacity: 0.25; }
+  92%           { opacity: 1; }
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
+}
+.btn--primary {
+  background: var(--color-cta);
+  color: #06060e;
+}
+.btn--primary:hover {
+  background: var(--color-cta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(255, 140, 56, 0.38);
+}
+.btn--outline {
+  background: transparent;
+  color: var(--color-accent);
+  border: 1.5px solid var(--color-accent);
+}
+.btn--outline:hover {
+  background: var(--color-accent-glow);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   CREDENTIALS STRIP
+   ============================================================ */
+.creds {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+.cred-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: var(--space-md) var(--space-lg);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  border-right: 1px solid var(--color-border);
+}
+.cred-item:last-child { border-right: none; }
+.cred-item__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-verified);
+  flex-shrink: 0;
+  box-shadow: 0 0 8px var(--color-verified);
+}
+
+/* ============================================================
+   SECTION WRAPPER
+   ============================================================ */
+.section {
+  padding: var(--space-xl) var(--space-md);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.surface-section {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+.section__header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+.section__label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+.section__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text);
+}
+.section__desc {
+  color: var(--color-muted);
+  margin-top: var(--space-sm);
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+
+/* ============================================================
+   PILOT CARDS
+   ============================================================ */
+.pilots-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+@media (min-width: 768px) {
+  .pilots-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.pilot-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.pilot-card:hover {
+  border-color: rgba(124, 114, 248, 0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(124, 114, 248, 0.06);
+}
+
+.pilot-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-md) 0;
+}
+.pilot-card__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid var(--color-border);
+}
+.pilot-card__identity { flex: 1; }
+.pilot-card__name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+  line-height: 1.1;
+}
+.pilot-card__specialty {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--color-cta);
+  margin: 0.25rem 0 0.4rem;
+}
+.pilot-card__stars {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.stars { color: var(--color-star); font-size: 0.9rem; letter-spacing: 0.04em; }
+.pilot-card__review-count {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+}
+
+/* Portfolio thumbnail strip */
+.pilot-card__portfolio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  margin: var(--space-md) 0 0;
+}
+.portfolio-thumb {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+}
+.portfolio-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.portfolio-thumb:hover img {
+  transform: scale(1.1);
+}
+/* Shutter flash — applied via JS */
+.portfolio-thumb.captured::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: white;
+  animation: shutter-flash 0.35s ease forwards;
+  pointer-events: none;
+}
+@keyframes shutter-flash {
+  0%   { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+
+/* Pilot details row */
+.pilot-card__details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--color-border);
+  margin-top: var(--space-md);
+}
+.pilot-detail {
+  background: var(--color-surface-2);
+  padding: 0.75rem var(--space-sm);
+  text-align: center;
+}
+.pilot-detail__label {
+  display: block;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+  margin-bottom: 0.2rem;
+  font-weight: 700;
+}
+.pilot-detail__value {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+.pilot-detail__value--price {
+  color: var(--color-cta);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+
+/* Specialty tags */
+.pilot-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: var(--space-sm) var(--space-md) 0;
+}
+.tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+  background: var(--color-accent-glow);
+  border: 1px solid rgba(124, 114, 248, 0.2);
+  color: var(--color-accent);
+}
+
+.pilot-card__footer {
+  padding: var(--space-md);
+  margin-top: auto;
+}
+.pilot-card__book { width: 100%; justify-content: center; }
+
+/* ============================================================
+   PHOTO GALLERY
+   ============================================================ */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  grid-auto-rows: 200px;
+}
+@media (min-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 220px;
+  }
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.gallery-item--tall { grid-row: span 2; }
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.gallery-item:hover img { transform: scale(1.06); }
+
+.gallery-item__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(6, 6, 14, 0.8) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity var(--transition);
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-sm) var(--space-md);
+}
+.gallery-item:hover .gallery-item__overlay { opacity: 1; }
+.gallery-item__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+}
+
+/* Gallery shutter flash — applied via JS */
+.gallery-item.captured::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: white;
+  animation: shutter-flash 0.35s ease forwards;
+  pointer-events: none;
+  z-index: 10;
+  border-radius: var(--radius);
+}
+
+/* ============================================================
+   WHY HIRE A PRO
+   ============================================================ */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+@media (min-width: 640px) {
+  .why-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.why-card {
+  text-align: center;
+  padding: var(--space-lg) var(--space-md);
+}
+.why-card__number {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-accent);
+  opacity: 0.18;
+  margin-bottom: -1.5rem;
+  display: block;
+}
+.why-card__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+  margin-bottom: 0.6rem;
+  position: relative;
+}
+.why-card__desc {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.7;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   CTA BANNER
+   ============================================================ */
+.cta-banner {
+  background:
+    radial-gradient(ellipse 100% 200% at 50% 110%, rgba(124, 114, 248, 0.14) 0%, transparent 70%),
+    var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+}
+.cta-banner__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+.cta-banner__sub {
+  color: var(--color-muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin-bottom: var(--space-lg);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+}
+.footer__logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  margin-bottom: 0.3rem;
+}
+.footer__tagline {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  margin-bottom: var(--space-md);
+}
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+  margin-bottom: var(--space-md);
+  list-style: none;
+}
+.footer__links a {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  transition: color var(--transition);
+}
+.footer__links a:hover { color: var(--color-accent); }
+.footer__copy { font-size: 0.78rem; color: var(--color-muted); opacity: 0.55; }
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
